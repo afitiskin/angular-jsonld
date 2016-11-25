@@ -1,0 +1,67 @@
+{
+  "name": "angular-jsonld-component",
+  "version": "1.0.0",
+  "description": "JSON-LD renderer component for angular.js",
+  "scripts": {
+    "prebuild": "npm test",
+    "build": "webpack",
+    "check-dependencies": "nsp check",
+    "lint": "eslint './'",
+    "climate-coverage": "npm run test && codeclimate-test-reporter < coverage/lcov.info",
+    "test": "cross-env NODE_ENV=test npm run lint && karma start",
+    "prepublish": "npm run build"
+  },
+  "author": "Alex Fitiskin <alexfitiskin@gmail.com>",
+  "main": "dist/index.js",
+  "keywords": [
+    "ld+json",
+    "angular",
+    "component",
+    "es6"
+  ],
+  "config": {
+    "pre-git": {
+      "pre-commit": [
+        "npm run lint"
+      ],
+      "post-commit": [
+        "git status"
+      ],
+      "pre-push": [
+        "npm test"
+      ]
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/afitiskin/angular-jsonld"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-mocks": "^1.5.8",
+    "babel-core": "^6.4.0",
+    "babel-eslint": "^4.1.8",
+    "babel-istanbul": "^0.6.0",
+    "babel-istanbul-loader": "0.0.1",
+    "babel-loader": "^6.2.1",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "codeclimate-test-reporter": "^0.3.3",
+    "cross-env": "^2.0.1",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^3.1.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.3",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "nsp": "^2.6.1",
+    "pre-git": "^3.10.0",
+    "webpack": "^1.12.11"
+  }
+}
