@@ -1,4 +1,4 @@
-export class jsonldController {
+class jsonldController {
   static template = '<script type="application/ld+json" ng-bind="$ctrl.json"></script>';
   static controllerAs = '$ctrl';
   static bindings = {

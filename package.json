@@ -1,9 +1,8 @@
 {
   "name": "angular-jsonld-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JSON-LD renderer component for angular.js",
   "scripts": {
-    "prebuild": "npm test",
     "build": "webpack",
     "check-dependencies": "nsp check",
     "lint": "eslint './'",
