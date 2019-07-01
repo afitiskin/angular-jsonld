@@ -1,20 +1,17 @@
-class jsonldController {
-  static template = '<script type="application/ld+json" ng-bind="$ctrl.json"></script>';
-  static controllerAs = '$ctrl';
-  static bindings = {
-    data: '<',
-  };
+var jsonldController = {};
 
-  $onChanges() {
-    this.json = JSON.stringify(this.data);
-  }
-}
-
-export default angular.module('jsonld', [])
+module.exports = angular.module('jsonld', [])
   .component('jsonld', {
-    controller: jsonldController,
-    controllerAs: jsonldController.controllerAs,
-    bindings: jsonldController.bindings,
-    template: jsonldController.template,
+    controller: function () {
+      this.$onChanges = function () {
+        this.json = JSON.stringify(this.data);
+      };
+    },
+    controllerAs: '$ctrl',
+    bindings: {
+      data: '<',
+    },
+    template: '<script type="application/ld+json" ng-bind="$ctrl.json"></script>',
   })
   .name;
+

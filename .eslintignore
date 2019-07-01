@@ -1,9 +1,0 @@
-build/*
-dist/*
-node_modules/*
-coverage/*
-**/node_modules/*
-tools/*
-karma.conf.js
-tests.webpack.js
-webpack.config.js

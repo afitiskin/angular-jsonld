@@ -1,5 +1,3 @@
-var path = require('path');
-
 module.exports = function karmaConfig(config) {
   config.set({
     colors: true,
@@ -7,7 +5,7 @@ module.exports = function karmaConfig(config) {
     autoWatch: false,
     singleRun: true,
     concurrency: Infinity,
-    browsers: ['Firefox', 'PhantomJS'],
+    browsers: ['Chrome'],
     coverageReporter: {
       reporters: [
         {
@@ -24,51 +22,19 @@ module.exports = function karmaConfig(config) {
       ],
     },
     files: [
-      'tests.webpack.js',
+      'tests/**/*.spec.js',
     ],
     frameworks: [
       'jasmine',
+      'browserify',
     ],
     preprocessors: {
-      'tests.webpack.js': ['webpack', 'sourcemap'],
+      'tests/**/*.spec.js': ['browserify']
     },
-    reporters: ['progress', 'coverage'],
-    webpack: {
-      cache: true,
-      devtool: 'inline-source-map',
-      module: {
-        preLoaders: [
-          {
-            test: /\.js$/,
-            include: /test/,
-            exclude: /(bower_components|node_modules)/,
-            loader: 'babel',
-            query: {
-              cacheDirectory: true,
-            },
-          },
-          {
-            test: /\.js?$/,
-            include: /src/,
-            exclude: /(node_modules|bower_components)/,
-            loader: 'babel-istanbul',
-            query: {
-              cacheDirectory: true,
-            },
-          },
-        ],
-        loaders: [
-          {
-            test: /\.js$/,
-            include: path.resolve(__dirname, '../src'),
-            exclude: /(bower_components|node_modules)/,
-            loader: 'babel',
-            query: {
-              cacheDirectory: true,
-            },
-          },
-        ],
-      },
+    reporters: ['progress'],
+    browserify: {
+      debug: true,
+      transform: []
     },
   });
 };

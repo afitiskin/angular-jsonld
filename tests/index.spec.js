@@ -1,6 +1,6 @@
-import angular from 'angular';
-import 'angular-mocks';
-import jsonld from '../src';
+const angular = require('angular');
+require('angular-mocks');
+const jsonld = require('../src');
 
 describe('ld+json component', () => {
   let $compile;
